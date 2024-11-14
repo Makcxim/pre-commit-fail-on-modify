@@ -1088,6 +1088,16 @@ def test_fail_fast_per_hook(cap_out, store, repo_with_failing_hook):
     assert printed.count(b'Failing hook') == 1
 
 
+def test_fail_on_modify_per_hook(cap_out, store, repo_with_failing_hook):
+    with modify_config() as config:
+        config['repos'][0]['hooks'][0]['fail_on_modify'] = True
+    stage_a_file()
+
+    ret, printed = _do_run(cap_out, store, repo_with_failing_hook, run_opts())
+    assert b'Failing hook' in printed
+    assert ret == 1
+
+
 def test_fail_fast_not_prev_failures(cap_out, store, repo_with_failing_hook):
     with modify_config() as config:
         config['repos'].append({

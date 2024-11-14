@@ -203,7 +203,7 @@ def _run_single_hook(
         diff_after = _get_diff()
 
         # if the hook makes changes, fail the commit
-        files_modified = diff_before != diff_after
+        files_modified = (diff_before != diff_after) and hook.fail_on_modify
 
         if retcode or files_modified:
             print_color = color.RED
