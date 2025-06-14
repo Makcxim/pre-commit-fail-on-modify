@@ -1,3 +1,34 @@
+4.2.0 - 2025-03-18
+==================
+
+### Features
+- For `language: python` first attempt a versioned python executable for
+  the default language version before consulting a potentially unversioned
+  `sys.executable`.
+    - #3430 PR by @asottile.
+
+### Fixes
+- Handle error during conflict detection when a file is named "HEAD"
+    - #3425 PR by @tusharsadhwani.
+
+4.1.0 - 2025-01-20
+==================
+
+### Features
+- Add `language: julia`.
+    - #3348 PR by @fredrikekre.
+    - #2689 issue @jmuchovej.
+
+### Fixes
+- Disable automatic toolchain switching for `language: golang`.
+    - #3304 PR by @AleksaC.
+    - #3300 issue by @AleksaC.
+    - #3149 issue by @nijel.
+- Fix `language: r` installation when initiated by RStudio.
+    - #3389 PR by @lorenzwalthert.
+    - #3385 issue by @lorenzwalthert.
+
+
 4.0.1 - 2024-10-08
 ==================
 
